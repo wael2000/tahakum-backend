@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.web.bind.annotation.*;
 
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @EnableAutoConfiguration
@@ -16,6 +16,7 @@ public class FruitsController {
 	@Autowired FruitRepository repository;
 	
 	@GetMapping("/api/fruits")
+	@CrossOrigin(origins = "http://localhost:4200")
     public Iterable<Fruit> getAll() {
         return repository.findAll();
     }

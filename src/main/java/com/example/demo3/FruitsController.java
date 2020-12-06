@@ -16,7 +16,8 @@ public class FruitsController {
 	@Autowired FruitRepository repository;
 	
 	@GetMapping("/api/fruits")
-	@CrossOrigin(origins = "http://localhost:4200")
+	//@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
     public Iterable<Fruit> getAll() {
         return repository.findAll();
     }
